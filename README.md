@@ -45,3 +45,13 @@ pnpm install
 ```
 
 Tu peux aussi vérifier que tu es à jour avec mon code sur GitHub.
+
+### 3. Utilisation de `pnpm`
+
+Parfois l'utilisation de `pnpm` peut être problématique ou au contraire meilleure.
+
+Si tu as essayé avec `npm`, essaie avec `pnpm`.
+
+Si tu as essayé avec `pnpm`, essaie avec `npm`.
+
+- [PNPM Documentation](https://pnpm.io/)
