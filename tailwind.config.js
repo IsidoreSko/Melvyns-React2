@@ -18,8 +18,12 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-animate"),
+    require("daisyui"),
+  ],
   daisyui: {
-    themes: ["dracula", "fantasy"],
+    themes: ["night", "emerald"],
   },
 };

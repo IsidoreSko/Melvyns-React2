@@ -2,6 +2,7 @@
 
 import { User2 } from "lucide-react";
 import { useState } from "react";
+// import { useState } from "react";
 
 function NameForm() {
   // 🦁 Ajoute un `useState` pour le nom
