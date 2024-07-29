@@ -1,7 +1,6 @@
 "use client";
 
 import { User2 } from "lucide-react";
-import { useState } from "react";
 // import { useState } from "react";
 
 function NameForm() {
