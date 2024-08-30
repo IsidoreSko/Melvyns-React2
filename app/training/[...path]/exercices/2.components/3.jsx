@@ -42,11 +42,11 @@ import styles from "./3.module.css";
 //   purple: styles["badge-color-purple"],
 // };
 
-const VARIANTS = {
-  red: styles.colorRed,
-  green: styles.colorGreen,
-  purple: styles.colorPurple,
-};
+// const VARIANTS = {
+//   red: styles.colorRed,
+//   green: styles.colorGreen,
+//   purple: styles.colorPurple,
+// };
 
 // 🦁 2. Sizes
 // Pour chaque size, tu vas utiliser les "inline styles" pour définir la taille du padding et la taille de la police.
@@ -75,10 +75,10 @@ const VARIANTS = {
 //   lg: styles["badge-size-large"],
 // };
 
-const SIZES = {
-  default: styles.sizeDefault,
-  lg: styles.sizeLarge,
-};
+// const SIZES = {
+//   default: styles.sizeDefault,
+//   lg: styles.sizeLarge,
+// };
 
 // 🦁 Tu vas ensuite pouvoir utiliser ces objets pour définir les styles de ton badge.
 // Avec les props, tu vas pouvoir récupérer la taille et le variant du badge pour lui appliquer les styles correspondants.
@@ -134,11 +134,32 @@ const SIZES = {
 //   return <span className={` ${variantStyle} ${sizeStyle}`}>{children}</span>;
 // };
 
-const Badge = ({ size, variant, children }) => {
-  const variantStyle = VARIANTS[variant];
-  const sizeStyle = SIZES[size];
+// const Badge = ({ size, variant, children }) => {
+//   const variantStyle = VARIANTS[variant];
+//   const sizeStyle = SIZES[size];
+//   return (
+//     <span className={`${styles.badge} ${variantStyle} ${sizeStyle}`}>
+//       {children}
+//     </span>
+//   );
+// };
+
+import clsx from "clsx";
+
+const Badge = ({ variant = "red", size = "default", children }) => {
   return (
-    <span className={`${styles.badge} ${variantStyle} ${sizeStyle}`}>
+    <span
+      className={clsx(
+        "inline-flex w-fit items-center rounded-md text-sm font-medium",
+        {
+          "bg-red-500/15 text-red-700": variant === "red",
+          "bg-green-500/15 text-green-700": variant === "green",
+          "bg-purple-500/15 text-purple-700": variant === "purple",
+          "px-1.5 py-0.5": size === "default",
+          "px-2 py-1": size === "lg",
+        }
+      )}
+    >
       {children}
     </span>
   );
