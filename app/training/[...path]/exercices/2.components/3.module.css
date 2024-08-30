@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* .badge-base {
+.badge {
   display: flex;
   align-items: center;
   border-radius: 6px;
@@ -10,25 +6,25 @@
   width: fit-content;
 }
 
-.badge-size-default {
+.sizeDefault {
   padding: 2px 6px;
 }
 
-.badge-size-large {
+.sizeLarge {
   padding: 4px 8px;
 }
 
-.badge-color-red {
+.colorRed {
   background: #ef444415;
   color: #b91c1c;
 }
 
-.badge-color-green {
+.colorGreen {
   background: #22c55e15;
   color: #15803d;
 }
 
-.badge-color-purple {
+.colorPurple {
   background: #8b5cf615;
   color: #6d28d9;
-} */
+}

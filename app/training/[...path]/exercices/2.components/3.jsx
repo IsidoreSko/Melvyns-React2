@@ -1,3 +1,5 @@
+"use client";
+import styles from "./3.module.css";
 // 🦁 Tu vas devoir créer un badge qui possède plusieurs "variant" (couleur) et taille (size).
 
 // 🦁 1. Variants
@@ -13,6 +15,39 @@
 //   - background: "#8b5cf615"
 //   - color: "#6d28d9"
 
+// const VARIANTS = {
+//   red: {
+//     background: "#ef444415",
+//     color: "#b91c1c",
+//   },
+//   green: {
+//     background: "#22c55e15",
+//     color: "#15803d",
+//   },
+//   purple: {
+//     background: "#8b5cf615",
+//     color: "#6d28d9",
+//   },
+// };
+
+// const VARIANTS = {
+//   red: "badge-color-red",
+//   green: "badge-color-green",
+//   purple: "badge-color-purple",
+// };
+
+// const VARIANTS = {
+//   red: styles["badge-color-red"],
+//   green: styles["badge-color-green"],
+//   purple: styles["badge-color-purple"],
+// };
+
+const VARIANTS = {
+  red: styles.colorRed,
+  green: styles.colorGreen,
+  purple: styles.colorPurple,
+};
+
 // 🦁 2. Sizes
 // Pour chaque size, tu vas utiliser les "inline styles" pour définir la taille du padding et la taille de la police.
 // Pour ça, tu vas créer un objet `SIZES` qui contiendra les clés suivantes :
@@ -20,6 +55,30 @@
 //   - padding: "2px 6px"
 // - lg
 //   - padding: "4px 8px"
+
+// const SIZES = {
+//   default: {
+//     padding: "2px 6px",
+//   },
+//   lg: {
+//     padding: "4px 8px",
+//   },
+// };
+
+// const SIZES = {
+//   default: "badge-size-default",
+//   lg: "badge-size-large",
+// };
+
+// const SIZES = {
+//   default: styles["badge-size-default"],
+//   lg: styles["badge-size-large"],
+// };
+
+const SIZES = {
+  default: styles.sizeDefault,
+  lg: styles.sizeLarge,
+};
 
 // 🦁 Tu vas ensuite pouvoir utiliser ces objets pour définir les styles de ton badge.
 // Avec les props, tu vas pouvoir récupérer la taille et le variant du badge pour lui appliquer les styles correspondants.
@@ -38,15 +97,48 @@
 
 // 💣 Supprime cette ligne
 // eslint-disable-next-line no-unused-vars
+// const Badge = ({ size, variant, children }) => {
+//   const variantStyle = VARIANTS[variant];
+//   const sizeStyle = SIZES[size];
+//   return (
+//     <span
+//       style={{
+//         // 🦁 Ajoute les styles
+//         display: "inline-flex",
+//         alignItems: "center",
+//         borderRadius: "6px",
+//         fontWeight: "500",
+//         width: "fit-content",
+//         ...variantStyle,
+//         ...sizeStyle,
+//       }}
+//     >
+//       {children}
+//     </span>
+//   );
+// };
+
+// const Badge = ({ size, variant, children }) => {
+//   const variantStyle = VARIANTS[variant];
+//   const sizeStyle = SIZES[size];
+//   return (
+//     <span className={`badge-base ${variantStyle} ${sizeStyle}`}>
+//       {children}
+//     </span>
+//   );
+// };
+
+// const Badge = ({ size, variant, children }) => {
+//   const variantStyle = VARIANTS[variant];
+//   const sizeStyle = SIZES[size];
+//   return <span className={` ${variantStyle} ${sizeStyle}`}>{children}</span>;
+// };
+
 const Badge = ({ size, variant, children }) => {
+  const variantStyle = VARIANTS[variant];
+  const sizeStyle = SIZES[size];
   return (
-    <span
-      style={
-        {
-          // 🦁 Ajoute les styles
-        }
-      }
-    >
+    <span className={`${styles.badge} ${variantStyle} ${sizeStyle}`}>
       {children}
     </span>
   );
