@@ -1,12 +1,12 @@
 "use client";
 
 import { User2 } from "lucide-react";
-// import { useState } from "react";
+import { useState } from "react";
 
-function NameForm() {
+function NameForm({ initialName }) {
   // 🦁 Ajoute un `useState` pour le nom
   // 💡 useState("")
-
+  const [name, setName] = useState(initialName ?? "");
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="card w-full max-w-96 bg-neutral text-neutral-content">
@@ -15,7 +15,21 @@ function NameForm() {
           {/* 🦁 Affiche le `name` juste ici */}
           {/* 🦁 Utilise un opérateur ternaire pour soit afficher "No name" en rouge */}
           {/* 🦁 Soit afficher le `name` */}
-          <p className="text-error">No name</p>
+          {name.length > 0 ? (
+            <p>{name}</p>
+          ) : (
+            <p className="text-error">No name</p>
+          )}
+          {name != initialName ? (
+            <button
+              onClick={() => {
+                setName(initialName);
+              }}
+              className="btn btn-warning btn-sm"
+            >
+              Reset
+            </button>
+          ) : null}
         </div>
       </div>
       <div className="divider">Form</div>
@@ -24,7 +38,16 @@ function NameForm() {
         {/* 🦁 Transforme cette input en **controlled input** */}
         {/* Il faut ajouter la propriété `value` et `onChange` */}
         {/* 💡 onChange={e => e.target.value} : pour récupérer la value */}
-        <input type="text" className="grow" placeholder="Melvynx" />
+        <input
+          type="text"
+          value={name}
+          className="grow"
+          placeholder="Melvynx"
+          onChange={(e) => {
+            const newName = e.target.value;
+            setName(newName);
+          }}
+        />
       </label>
     </div>
   );
@@ -33,7 +56,8 @@ function NameForm() {
 export default function App() {
   return (
     <div>
-      <NameForm />
+      <NameForm initialName={"Melvyn"} />
+      <NameForm initialName={"Ollie"} />
     </div>
   );
 }
