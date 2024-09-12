@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // create a method that takes ms and return an object with hours, minutes, seconds and milliseconds¨
 const msToTime = (ms) => {
@@ -18,7 +18,17 @@ const Timer = () => {
 
   // 🦁 Utilise un `useEffect` pour venir incrémenter de 1 `milliseconds`
   // 🦁 Uniquement si `isRunning` est à true
+  useEffect(() => {
+    if (!isRunning) return;
 
+    const interval = setInterval(() => {
+      setMilliseconds((prevMilliseconds) => prevMilliseconds + 10);
+    }, 10);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isRunning]);
   const { hours, minutes, seconds, milliseconds: ms } = msToTime(milliseconds);
 
   const firstDigitOfMilliseconds = Math.floor(ms / 10).toString();
