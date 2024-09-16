@@ -60,7 +60,6 @@ export default function App() {
       <DialogTrigger>Open dialog</DialogTrigger>
       <DialogContent>
         <p>What is your name ?</p>
-
         <label className="input input-bordered flex items-center gap-2">
           <User2 scale={16} />
           <input type="text" className="grow" placeholder="Username" />
